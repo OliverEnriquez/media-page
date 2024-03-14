@@ -1,6 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Definición de animación */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Clase de animación */
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
 .App {
   text-align: center;
 }
@@ -35,6 +52,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
