@@ -1,6 +1,4 @@
-import axios from 'axios';
-import React, { useState } from 'react';
-import { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Content: React.FC = () => {
     const [selectedCategory, setSelectedCategory] = useState<string>("All categories");
@@ -41,7 +39,7 @@ const Content: React.FC = () => {
 
 
         // Fetch video games first
-        fetch("http://64.23.194.88:8080/api/videogame")
+        fetch("https://64.23.194.88:8080/api/videogame")
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -60,7 +58,7 @@ const Content: React.FC = () => {
                 medias.push(...videoGames); // Adding video games to the 'medias' array
 
                 // Fetch movies after video games are fetched and processed
-                fetch("http://64.23.194.88:8080/api/movie")
+                fetch("https://64.23.194.88:8080/api/movie")
                     .then(response => {
                         if (!response.ok) {
                             throw new Error('Network response was not ok');
@@ -100,7 +98,7 @@ const Content: React.FC = () => {
     const handleCategoryChange = (category: string) => {
         const medias: MediaData[] = [];
         if (category === 'movie') {
-            fetch("http://64.23.194.88:8080/api/" + category)
+            fetch("https://64.23.194.88:8080/api/" + category)
                 .then(response => {
                     if (!response.ok) {
                         throw new Error('Network response was not ok');
@@ -122,7 +120,7 @@ const Content: React.FC = () => {
                     console.error('There was a problem with the fetch operation:', error);
                 });
         } else if (category === 'videogame') {
-            fetch("http://64.23.194.88:8080/api/videogame")
+            fetch("https://64.23.194.88:8080/api/videogame")
                 .then(response => {
                     if (!response.ok) {
                         throw new Error('Network response was not ok');
